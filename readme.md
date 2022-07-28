@@ -30,14 +30,14 @@
     Após a instalação do Linux Ubuntu 22.04, você deve executar alguns comandos para atualizar o sistema e deixá-lo preparado para a instalação do Docker.
 
     ### Atualização dos pacotes
-        ``` console
+``` console
         $ sudo apt update
-        ```
+```
 
     ### Reinicie o sistema 
-        ``` console
+``` console
         $ reboot
-        ```
+```
 
 ### Instalação do Docker Desktop
 
@@ -49,49 +49,54 @@
       1º - Clicar com o botão direito do mouse sobre o arquivo e escolher "Software Install"
 
       2º - Abrir o terminal e ir até a pasta (diretório) download e executar o comando de instalação:
-        ```console
+```console
         $ sudo apt install ./docker-desktop-4.10.1-amd64.deb
+```
 
     ### Caso retorne mensagem de erro referente ao docker-ce e/ou docker-cli, execute os comandos abaixo:
-      ```console
+```console
         $ sudo apt update
         $ sudo apt install apt-get install \
                            ca-certificates \
                            curl \
                            gnupg \
                            lsb-release
-      ```
+```
 
     Adicionar as chaves de GPS oficiais do Docker
-    ```console 
+```console 
       $  sudo mkdir -p /etc/apt/keyrings
       $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    ```
+```
 
     Use o comando abaixo para carregar  repositorio de pacotes
-    ```console
+```console
        echo \
        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
        $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    ```
+```
 
     ### Instalação do Docker Engine
-    ```console
+```console
         sudo apt-get update
         sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin 
-    ```
+```
 
     ### Após a instalação das dependências você deve executar o comando de instalação do docker desktop
-    ```console
+```console
        $ sudo apt install ./docker-desktop-4.10.1-amd64.deb
-    ```
+```
 
 ## Instalando a imagem e o container de MySQL no Docker
 ### Vamos usar volume nesse exemplo
     Crie uma pasta(diretório) chamada data_docker, no home usuário, execute o seguinte comando:
-    ```console
+```console
     $ docker run --name-servidor-mysql -v ~/data_docker:var/lib/mysql -e MYSQL_ROOT_PASSWORD=alunos@123 -d mysql:8.0.29
-    ```
+```
 
 Agora, abra o docker-desktop e veja o seu container rodando.
+
+<div align="center">
+<img src="dockerdestop.png" width="80%" heigth="60%">
+<div/>
     
