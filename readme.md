@@ -91,7 +91,7 @@
 ### Vamos usar volume nesse exemplo
     Crie uma pasta(diretório) chamada data_docker, no home usuário, execute o seguinte comando:
 ```console
-    $ docker run --name servidor-mysql -v ~/data_docker:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=alunos@123 -d mysql:8.0.29
+    $ docker run --name servidor-mysql -v ~/data_docker:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=alunos@123 -d -p 6520:3306 mysql:8.0.29
 ```
 
 Agora, abra o docker-desktop e veja o seu container rodando.
